@@ -1,0 +1,16 @@
+{
+	"nodes_num": 341,
+	"edges_num": 459,
+	"edge_labels": [
+		"type",
+		"label",
+		"subClassOf",
+		"comment",
+		"creator",
+		"description",
+		"language",
+		"publisher",
+		"title",
+		"versionInfo"
+	]
+}
