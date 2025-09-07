@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any, List, Tuple
+from typing import List, Tuple
 import cfpq_data
 from networkx.drawing.nx_pydot import write_dot
 import networkx as nx
@@ -29,7 +29,7 @@ def save_graph_from_two_cycles_to_dot_file(
     write_dot(graph, path)
 
 
-# this function is just wrappings of the library functions, so there's hardly any need to test it
+# this function is just a wrapping of the library function, so there's hardly any need to test it
 def build_graph_from_two_cycles(
     node_num_1: int, node_num_2: int, labels: Tuple[str, str]
 ) -> nx.MultiDiGraph:
