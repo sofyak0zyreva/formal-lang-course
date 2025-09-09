@@ -1,0 +1,11 @@
+{
+	"nodes_num": 6238,
+	"edges_num": 12363,
+	"edge_labels": [
+		"type",
+		"label",
+		"subClassOf",
+		"narrower",
+		"imports"
+	]
+}
