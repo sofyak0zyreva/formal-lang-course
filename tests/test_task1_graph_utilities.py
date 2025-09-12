@@ -1,20 +1,12 @@
-from pathlib import Path
 import pytest
 from project.task1_graph_utilities import (
     get_graph_info_by_name,
     build_graph_from_two_cycles,
     save_graph_from_two_cycles_to_dot_file,
 )
-from utilities import get_graph_info_from_json
+from utilities import get_graph_info_from_json, GRAPH_PARAMS
 from networkx.drawing.nx_pydot import read_dot
 from networkx.algorithms.isomorphism import is_isomorphic, categorical_edge_match
-
-
-DATA_DIR = Path(__file__).parent / "resources/graph_datasets"
-
-GRAPH_NAMES = ["biomedical", "pathways", "wine"]
-
-GRAPH_PARAMS = [(name, DATA_DIR / f"{name}_graph_info.json") for name in GRAPH_NAMES]
 
 
 @pytest.mark.parametrize("graph_name, path_to_graph", GRAPH_PARAMS)

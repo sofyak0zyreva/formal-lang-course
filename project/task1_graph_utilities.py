@@ -12,9 +12,22 @@ class GraphInfo:
     edge_labels: List[str]
 
 
-def get_graph_info_by_name(name: str) -> GraphInfo:
+def get_graph_by_name(name: str) -> nx.MultiDiGraph:
     path = cfpq_data.download(name)
-    graph = cfpq_data.graph_from_csv(path)
+    return cfpq_data.graph_from_csv(path)
+
+
+def get_graph_info_by_name(name: str) -> GraphInfo:
+    graph = get_graph_by_name(name)
+    return GraphInfo(
+        nodes_num=graph.number_of_nodes(),
+        edges_num=graph.number_of_edges(),
+        edge_labels=cfpq_data.get_sorted_labels(graph),
+    )
+
+
+# a helper function useful for tests
+def get_graph_info_from_graph(graph: nx.MultiDiGraph):
     return GraphInfo(
         nodes_num=graph.number_of_nodes(),
         edges_num=graph.number_of_edges(),
