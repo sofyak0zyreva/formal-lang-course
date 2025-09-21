@@ -103,10 +103,14 @@ def intersect_automata(
     new_automaton.size = len(states)
 
     new_automaton.start_states = {
-        (s1, s2) for s1 in automaton1.start_states for s2 in automaton2.start_states
+        State((s1.value, s2.value))
+        for s1 in automaton1.start_states
+        for s2 in automaton2.start_states
     }
     new_automaton.final_states = {
-        (s1, s2) for s1 in automaton1.final_states for s2 in automaton2.final_states
+        State((s1.value, s2.value))
+        for s1 in automaton1.final_states
+        for s2 in automaton2.final_states
     }
 
     decomposed_adj_matrix = {}
@@ -133,7 +137,7 @@ def tensor_based_rpq(
             ind_from = new_adj_matr.state_index[s_from]
             ind_to = new_adj_matr.state_index[s_to]
             if transitive_closure[ind_from, ind_to]:
-                _, graph_state_from = s_from
-                _, graph_state_to = s_to
-                state_pairs.add((graph_state_from.value, graph_state_to.value))
+                _, graph_state_from = s_from.value
+                _, graph_state_to = s_to.value
+                state_pairs.add((graph_state_from, graph_state_to))
     return state_pairs
