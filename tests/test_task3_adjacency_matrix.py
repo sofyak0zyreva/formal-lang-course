@@ -26,21 +26,21 @@ def test_empty_automaton():
 
 def test_is_empty():
     # empty language: unreachable final state
-    nfa2 = NondeterministicFiniteAutomaton()
-    nfa2.add_transition(State(0), Symbol("a"), State(1))
-    nfa2.add_start_state(State(0))
-    nfa2.add_final_state(State(2))
-    amfa2 = AdjacencyMatrixFA(nfa2)
-    assert amfa2.is_empty()
+    nfa1 = NondeterministicFiniteAutomaton()
+    nfa1.add_transition(State(0), Symbol("a"), State(1))
+    nfa1.add_start_state(State(0))
+    nfa1.add_final_state(State(2))
+    am1 = AdjacencyMatrixFA(nfa1)
+    assert am1.is_empty()
 
     # path 0 -> 1 -> 2
-    nfa3 = NondeterministicFiniteAutomaton()
-    nfa3.add_transition(State(0), Symbol("a"), State(1))
-    nfa3.add_transition(State(1), Symbol("a"), State(2))
-    nfa3.add_start_state(State(0))
-    nfa3.add_final_state(State(2))
-    amfa3 = AdjacencyMatrixFA(nfa3)
-    assert not amfa3.is_empty()
+    nfa2 = NondeterministicFiniteAutomaton()
+    nfa2.add_transition(State(0), Symbol("a"), State(1))
+    nfa2.add_transition(State(1), Symbol("a"), State(2))
+    nfa2.add_start_state(State(0))
+    nfa2.add_final_state(State(2))
+    am2 = AdjacencyMatrixFA(nfa2)
+    assert not am2.is_empty()
 
 
 def test_intersect_simple():
